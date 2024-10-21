@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Vote Success</title>
+</head>
+<body>
+    <h2>Your vote has been successfully cast!</h2>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li style="color: red;">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+    <p>Thank you for voting for {{ candidate_name }}.</p>
+
+    <p>You are now being redirected to the logout page.</p>
+
+    <form method="GET" action="{{ url_for('logout') }}">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bigg Boss Home</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <style>
+        /* Styling the entire page to center content and make it responsive */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* Header image styling */
+        .logo-container img {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* Page title styling */
+        h2 {
+            font-size: 2rem;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Link styling */
+        .nav-links a {
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #ff6f61;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #e55a4e;
+        }
+
+        /* Making the page responsive for smaller screens */
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .nav-links a {
+                display: block;
+                width: 80%;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li style="color: red;">{{ message }}</li>  <!-- Customize style as needed -->
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <!-- Logo Section -->
+    <div class="logo-container">
+        <img src="static/images/Big-Boss.jpg" alt="Bigg Boss Logo">
+    </div>
+
+    <!-- Welcome Message -->
+    <h2>Welcome to Bigg Boss Voting</h2>
+    <p>Vote for your favorite contestant and make them the winner of the Bigg Boss season!</p>
+
+    <!-- Navigation Links -->
+    <div class="nav-links">
+        <a href="/index">Sign Up to Vote</a>
+       
+       
+    </div>
+
+</body>
+</html>

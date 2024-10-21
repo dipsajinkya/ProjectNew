@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Logout</title>
+            <link rel="stylesheet" href="/static/css/styles.css">
+        </head>
+        <body>
+          
+            <!-- Display flash messages, if any -->
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <h2>{{ messages[0] }}</h2>
+              {% endif %}
+            {% endwith %}
+        
+            <p> Thank you for voting!</p>
+            <a href="{{ url_for('login') }}">Sign up again</a>
+        </body>
+        </html>
+        </h2>
+    <p>You are now logged out. Thank you for participating!</p>
+    
+</body>
+</html>

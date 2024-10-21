@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>{{ candidate_name }}'s Profile</title>
+</head>
+<body>
+    <h2>{{ candidate_name }}</h2>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li style="color: red;">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <img src="/static/images/{{ candidate_name | lower }}.jpg" alt="{{ candidate_name }}">
+    <p>Follow {{ candidate_name }} on:</p>
+    <ul>
+        <li><a href="https://instagram.com/{{ candidate_name | lower }}" target="_blank">Instagram</a></li>
+        <li><a href="https://facebook.com/{{ candidate_name | lower }}" target="_blank">Facebook</a></li>
+    </ul>
+
+    {% if session.get('voter_id') %}
+        <form method="POST">
+            <button type="submit">Vote for {{ candidate_name }}</button>
+        </form>
+    {% else %}
+        <p>Please log in to vote.</p>
+    {% endif %}
+
+    <a href="/candidates">Back to Candidates</a> | <a href="/logout">Logout</a>
+</body>
+</html>

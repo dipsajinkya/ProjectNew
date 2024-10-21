@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Candidates</title>
+</head>
+<body>
+    <h2>Candidates List</h2>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li style="color: red;">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <ul>
+        {% for candidate in candidates %}
+        <li>
+            <img src="/static/images/{{ candidate | lower }}.jpg" alt="{{ candidate }}">
+            <p>{{ candidate }}</p>
+            <a href="/profile/{{ candidate }}">View Profile</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Back to Home</a> | <a href="/logout">Logout</a>
+</body>
+</html>
